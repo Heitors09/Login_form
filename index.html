@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&family=League+Spartan:wght@700&family=Merriweather+Sans:wght@300;400;600&family=Open+Sans:wght@600;700&family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@400;700&family=Work+Sans:wght@700&display=swap" rel="stylesheet"> 
     <title>Login_form</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
 <section class="initial">
@@ -25,11 +26,11 @@
         </header>
         <div class="email">
             <p>E-mail</p>
-            <input type="text" placeholder="Digite seu e-mail: ">
+            <input type="text" placeholder="Digite seu e-mail: " id="email">
         </div>
-        <div class="email" id="password">
+        <div class="email">
             <p>Senha</p>
-            <input type="password" placeholder="Digite sua senha: ">
+            <input type="password" placeholder="Digite sua senha: "  id="password">
         </div>
         <div class="checkbox">
             <span><input type="checkbox">Lembre-me</span>
@@ -42,4 +43,5 @@
     <img src="./images/side-image.jpg" alt="" class="side-image">
 </section>
 </body>
+<script src="./scripts.js"></script>
 </html>
