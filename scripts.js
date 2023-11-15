@@ -4,8 +4,30 @@ const database = supabase.createClient('https://dxtjhgyszopvxrivleou.supabase.co
 const button = document.querySelector(".login")
 const email = document.getElementById("email")
 const password = document.getElementById("password")
+const checkbox = document.getElementById("check")
 
 button.addEventListener('click',receiveUser)
+checkbox.addEventListener('change',()=>{
+    if (checkbox.checked){
+        localStorage.setItem('saved',email.value);
+
+    }else{
+        localStorage.removeItem('saved')
+    }
+})
+
+function reloadScreen(){
+  const localStorageItem = localStorage.getItem('saved')
+
+   if(localStorageItem){
+         email.value = localStorageItem
+         checkbox.checked = true
+   }
+
+}
+
+reloadScreen();
+
 
 
 async function receiveUser(){
@@ -16,5 +38,7 @@ async function receiveUser(){
     .from('loginkeys')
     .select('email', 'password')
     console.log({data})
+
+    
 }
 
