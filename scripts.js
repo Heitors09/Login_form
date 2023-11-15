@@ -6,27 +6,30 @@ const email = document.getElementById("email")
 const password = document.getElementById("password")
 const checkbox = document.getElementById("check")
 
+let info = []
+
 button.addEventListener('click',receiveUser)
 checkbox.addEventListener('change',()=>{
-    if (checkbox.checked){
-        localStorage.setItem('saved',email.value);
-
-    }else{
-        localStorage.removeItem('saved')
-    }
+       localStorage.setItem('savedEmail',email.value)
+       localStorage.setItem('savedPass',password.value)
 })
 
-function reloadScreen(){
-  const localStorageItem = localStorage.getItem('saved')
+function ReloadScreen(){
 
-   if(localStorageItem){
-         email.value = localStorageItem
-         checkbox.checked = true
-   }
+    const locaStorageEmail = localStorage.getItem('savedEmail')
+    const localStoragePassword = localStorage.getItem('savedPass')
+
+    if(locaStorageEmail && localStoragePassword){
+        email.value = locaStorageEmail
+        password.value = localStoragePassword
+
+        checkbox.checked = true
+    }
 
 }
 
-reloadScreen();
+ReloadScreen();
+
 
 
 
